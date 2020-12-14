@@ -1,0 +1,1419 @@
+using System;
+using System.Collections.Generic;
+
+namespace ERROR_game_not_found
+{
+
+    static class Game
+    {
+        static string Character = "mrlepel";
+
+
+        static List<string> toys_progression = new List<string>();
+
+
+        static bool laptop_res = false;
+        static bool phone_res = false;
+        static bool toys_res = false;
+        static bool text_res = false;
+
+        static List<string> ending_collections = new List<string>();
+        static List<string> unlocks = new List<string>();
+
+        static string ending = "";
+
+        static bool skip_check = true;
+
+        static int sanity = 0;
+
+        static string[] worst_text =
+        {
+            "sigh, here we go again",
+            "you now you can just play the game right",
+            "there are so many great endings",
+            "there is so much time invested in this game",
+            "it must mean something right?",
+            "you really are the worst aren't you",
+            "you think this is funny?",
+            "this game was made for a very mediocre school project so it's very important",
+            "what kind of person would try to sabotage such a inicent little project",
+            "i believe you're clinically insane",
+            "if you keep screwing up i'll restart the game",
+            "i'll do it",
+            "i will",
+            "one more",
+            "...",
+            "you are really testing me",
+            "you know what screw it"
+        };
+
+        public static void StartScreen()
+        {
+            Program.NewScreen();
+            skip_check = false;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"
+███████╗██████╗ ██████╗  ██████╗ ██████╗    
+██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██╗
+█████╗  ██████╔╝██████╔╝██║   ██║██████╔╝╚═╝
+██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗██╗
+███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║╚═╝
+╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   
+                                            
+");
+
+
+            Program.Dialog("", "", 2000, 10);
+            Program.NewScreen();
+            Console.WriteLine(@"
+███████╗██████╗ ██████╗  ██████╗ ██████╗         ██████╗  █████╗ ███╗   ███╗███████╗    ███╗   ██╗ ██████╗ ████████╗    ███████╗ ██████╗ ██╗   ██╗███╗   ██╗██████╗ 
+██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██╗    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ████╗  ██║██╔═══██╗╚══██╔══╝    ██╔════╝██╔═══██╗██║   ██║████╗  ██║██╔══██╗
+█████╗  ██████╔╝██████╔╝██║   ██║██████╔╝╚═╝    ██║  ███╗███████║██╔████╔██║█████╗      ██╔██╗ ██║██║   ██║   ██║       █████╗  ██║   ██║██║   ██║██╔██╗ ██║██║  ██║
+██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗██╗    ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║╚██╗██║██║   ██║   ██║       ██╔══╝  ██║   ██║██║   ██║██║╚██╗██║██║  ██║
+███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║╚═╝    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ██║ ╚████║╚██████╔╝   ██║       ██║     ╚██████╔╝╚██████╔╝██║ ╚████║██████╔╝
+╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝        ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝    ╚═╝  ╚═══╝ ╚═════╝    ╚═╝       ╚═╝      ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═════╝ 
+                                                                                                                                                                    
+");
+            Program.Dialog("", "", 0, 9);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "Username Required", 0, 1);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Character = Console.ReadLine();
+            Program.NewScreen();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"
+██████╗ ███████╗███████╗████████╗ █████╗ ██████╗ ████████╗██╗███╗   ██╗ ██████╗          
+██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝██║████╗  ██║██╔════╝          
+██████╔╝█████╗  ███████╗   ██║   ███████║██████╔╝   ██║   ██║██╔██╗ ██║██║  ███╗         
+██╔══██╗██╔══╝  ╚════██║   ██║   ██╔══██║██╔══██╗   ██║   ██║██║╚██╗██║██║   ██║         
+██║  ██║███████╗███████║   ██║   ██║  ██║██║  ██║   ██║   ██║██║ ╚████║╚██████╔╝██╗██╗██╗
+╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝╚═╝
+                                                                                         
+");
+            Program.Dialog("", "", 4000, 7);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "well guess that ruines my plans", 5000, 1, false, true);
+            Program.Dialog(Character, "this piece of junk always breaks down at the worst moments", 6000, 1, false, true);
+            Program.Dialog(Character, "hopefully this doesn't take too long like last time", 10000, 2, false, true);
+            Program.Dialog(Character, "it is taking a while", 10000, 2, false, true);
+            Program.Dialog(Character, "come on hurry up", 200, 0, false, true);
+            StartGame();
+        }
+
+        public static void StartGame()
+        {
+            Program.Dialog("", "", 4000, 0, true);
+            Program.NewScreen();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(@"
+                                                                            ________            _______
+                                                                   /\ \ \ \/_______/     ______/\      \  /\ \/ /\ \/ /\  \_____________
+                                                                  /\ \ \ \/_______/     /\    /:\\      \ ::\  /::\  /::\ /____  ____ __
+                                                                 /\ \ \ \/_______/     /:\\  /:\:\\______\::/  \::/  \::///   / /   //
+                                                                /\ \ \ \/_______/    _/____\/:\:\:/_____ / / /\ \/ /\ \///___/ /___//___
+                                                          _____/___ \ \/_______/    /\::::::\\:\:/_____ / \ /::\  /::\ /____  ____  ____
+                                                                   \ \/_______/    /:\\::::::\\:/_____ /   \\::/  \::///   / /   / /   /
+                                                                    \/_______/    /:\:\\______\/______/_____\\/ /\ \///___/ /___/ /_____
+                                                          \          \______/    /:\:\:/_____:/\      \ ___ /  /::\ /____  ____  _/\::::
+                                                          \\__________\____/    /:\:\:/_____:/:\\      \__ /_______/____/_/___/_ /  \:::
+                                                          //__________/___/   _/____:/_____:/:\:\\______\ /                     /\  /\::
+                                                          ///\          \/   /\ .----.\___:/:\:\:/_____ // \                   /  \/  \:
+                                                          ///\\          \  /::\\ \_\ \\_:/:\:\:/_____ //:\ \                 /\  /\  /\
+                                                          //:/\\          \//\::\\ \ \ \\/:\:\:/_____ //:::\ \               /  \/  \/+/
+                                                          /:/:/\\_________/:\/:::\`----' \\:\:/_____ //o:/\:\ \_____________/\  /\  / /
+                                                          :/:/://________//\::/\::\_______\\:/_____ ///\_\ \:\/____________/  \/  \/+/\
+                                                          /:/:///_/_/_/_/:\/::\ \:/__  __ /:/_____ ///\//\\/:/ _____  ____/\  /\  / /  \
+                                                          :/:///_/_/_/_//\::/\:\///_/ /_//:/______/_/ :~\/::/ /____/ /___/  \/  \/+/\  /
+                                                          /:///_/_/_/_/:\/::\ \:/__  __ /:/____/\  / \\:\/:/ _____  ____/\  /\  / /  \/
+                                                          :///_/_/_/_//\::/\:\///_/ /_//:/____/\:\____\\::/ /____/ /___/  \/  \/+/\  /\
+                                                          ///_/_/_/_/:\/::\ \:/__  __ /:/____/\:\/____/\\/____________/\  /\  / /  \/  \
+                                                          //_/_/_/_//\::/\:\///_/ /_//::::::/\:\/____/  /----/----/--/  \/  \/+/\  /\  /
+                                                          /_/_/_/_/:\/::\ \:/__  __ /\:::::/\:\/____/ \/____/____/__/\  /\  / /  \/  \/_
+                                                          _/_/_/_//\::/\:\///_/ /_//\:\::::\:\/____/ \_____________/  \/  \/+/\  /\  /
+                                                          /_/_/_/:\/::\ \:/__  __ /\:\:\::::\/____/   \ _ _ _ _ _ /\  /\  / /  \/  \/___
+                                                          _/_/_//\::/\:\///_/ /_//\:\:\:\              \_________/  \/  \/+/\  /\  /   /
+                                                          /_/_/:\/::\ \:/__  __ /\:\:\:\:\______________\       /\  /\  / /  \/  \/___/_
+                                                          _/_//\::/\:\///_/ /_//::\:\:\:\/______________/      /  \/  \/+/\  /\  /   /
+                                                          /_/:\/::\ \:/__  __ /::::\:\:\/______________/\     /\  /\  / /  \/  \/___/___
+                                                          _//\::/\:\///_/ /_//:\::::\:\/______________/  \   /  \/  \/+/\  /\  /   /   /
+                                                          /:\/::\ \:/__  __ /:\:\::::\/______________/    \ /\  /\  / /  \/  \/___/___/
+                                                          /\::/\:\///_/ /_//:\:\:\                         \  \/\\\/+/\  /\  /   /   /+/
+                                                          \/::\ \:/__  __ /:\:\:\:\_________________________\ ///\\\/  \/  \/___/___/ /_
+                                                          ::/\:\///_/ /_//:\:\:\:\/_________________________////::\\\  /\  /   /   /+/
+                                                          ::\ \:/__  __ /:\:\:\:\/_________________________/:\/____\\\/  \/___/___/ /___
+                                                          /\:\///_/ /_//:\:\:\:\/_________________________/:::\    /\/\  /   /   /+/   /
+                                                          \ \:/__  __ /:\:\:\:\/_________________________/:::::\  ///  \/___/___/ /___/_
+                                                          :\///_/ /_//:\:\:\:\/_________________________/:\:::::\///\  /   /  __________
+                                                          \:/__  __ /:\:\:\:\/_________________________/:::\:::::\/  \/___/__/\
+                                                          ///_/ /_//:\:\:\:\/_________________________/:\:::\:::::\  /   /  /::\
+                                                          /__  __ /\::\:\:\/_________________________/_____::\:::::\/___/__/:/\:\
+                                                          /_/ /_//::\::\:\/_____________________/\/_/_/_/_/\  \           /::\ \:\
+                                                          _  __ /:\::\:8\/_____________________/\/\   /\_\\/\  \ 8       /:/\:\ \:\
+                                                          / /_//\     \|______________________//\\/\::\/__\\/\  \|______/::\ \:\ \:\
+                                                           __ /  \  \                        /:\/:\/\_______\/\        /:/\:\ \:\/::\
+                                                          /_//    8      -8  --  --  --  -- //\::/\\/_/_/_/_/_/ --  --/::\ \:\ \::/\:\
+                                                          _ /     |\  \   |________________/:\/::\///__/ /__//_______/:/\:\ \:\/::\ \:\
+                                                          __________\     \               //\::/\:/___  ___ /       /::\ \:\ \::/\:\ \:\
+                                                          ::::::::::\\  \  \             /:\/::\///__/ /__//       /:/\:\ \:\/::\ \:\ \:");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(@"
+        __          _       __                __  
+  _____/ /_  ____ _(_)___  / /_  ____  ____  / /__
+ / ___/ __ \/ __ `/ / __ \/ __ \/ __ \/ __ \/ //_/
+/ /__/ / / / /_/ / / / / / /_/ / /_/ / /_/ / ,<   
+\___/_/ /_/\__,_/_/_/ /_/_.___/\____/\____/_/|_|                                            a game by mrlepel
+");
+            Program.Dialog("", "", 4000, 0);
+            Program.NewScreen();
+            Program.Dialog("", "", 4000, 0);
+            Program.NewScreen();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"
+██╗   ██╗██████╗ ██████╗  █████╗ ████████╗███████╗███████╗     ██████╗ ██╗ ██╗
+██║   ██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔════╝    ██╔═████╗╚═╝██╔╝
+██║   ██║██████╔╝██║  ██║███████║   ██║   █████╗  ███████╗    ██║██╔██║  ██╔╝ 
+██║   ██║██╔═══╝ ██║  ██║██╔══██║   ██║   ██╔══╝  ╚════██║    ████╔╝██║ ██╔╝  
+╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗███████║    ╚██████╔╝██╔╝██╗
+ ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝     ╚═════╝ ╚═╝ ╚═╝
+                                                                              
+");
+            Program.Dialog("", "", 4000, 7);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "of course", 4000, 1, false, true);
+            Program.Dialog(Character, "well i guess i'll look around the room for something to do", 8000, 1, false, true);
+            main_choice();
+        }
+        /// <summary>
+        /// laptop
+        /// </summary>
+        public static void main_choice()
+        {
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "you look around the room and see your old laptop your phone and some toys", 3000, 1);
+            Program.Dialog("", "what do you want to do");
+            Program.Dialog("", "A. {use old laptop}");
+            Program.Dialog("", "B. {pick up phone}");
+            Program.Dialog("", "C. {look at toys}", 0, 4);
+            string input = Console.ReadLine().ToUpper();
+            switch (input)
+            {
+                case "A":
+                    if (!laptop_res)
+                    {
+                        laptop();
+                    }
+                    else
+                    {
+                        laptop_choice();
+                    }
+                    break;
+                case "B":
+                    if (!phone_res)
+                    {
+                        phone();
+                    }
+                    else
+                    {
+                        phone_choice();
+                    }
+                    break;
+                case "C":
+                    if (!toys_res)
+                    {
+                        toys();
+                    }
+
+                    else
+                    {
+                        toys_choice();
+                    }
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Program.Dialog("", "", 0, 4, true);
+                    Program.Dialog(Character, "no idea what you just said", 5000, 0, false, true);
+                    main_choice();
+                    break;
+            }
+        }
+
+        public static void laptop()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "lets see if we can turn on this old machine", 5000, 0, false, true);
+            Program.Dialog("", "", 0, 0, true);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@" ______________
+||            ||
+||            ||
+||            ||
+||            ||
+||____________||
+|______________|
+ \\############\\
+  \\############\\
+   \      ____    \   
+    \_____\___\____\");
+
+            Program.Dialog("", "", 3000, 4);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "when you look at your laptop you see an old game and your main browser", 3000, 2);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "if i'm connected to internet i might to be able to look up support", 5000, 2, false, true);
+            laptop_choice();
+        }
+
+        public static void laptop_choice()
+        {
+            laptop_res = true;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "what do you want to do");
+            Program.Dialog("", "A. {look up support}");
+            Program.Dialog("", "B. {play astroids}");
+            Program.Dialog("", "C. {go back to room}", 0, 4, false);
+            string input = Console.ReadLine().ToUpper();
+            switch (input)
+            {
+                case "A":
+                    if (!unlocks.Contains("you found an indian support number"))
+                    {
+                        support_web();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Program.Dialog("", "", 0, 4, true);
+                        Program.Dialog(Character, "i already got that", 5000, 0, false, true);
+                        laptop_choice();
+                    };
+                    break;
+                case "B":
+                    astroids();
+                    break;
+                case "C":
+                    main_choice();
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Program.Dialog("", "", 0, 4, true);
+                    Program.Dialog(Character, "it's just a letter. how hard can that be", 5000, 0, false, true);
+                    laptop_choice();
+                    break;
+            }
+        }
+
+        public static void support_web()
+        {
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "you find a website that holds an indian support line for your system", 4000, 2);
+            unlocks.Add("you found an indian support number");
+            Program.Dialog("", "indian support number has been added to your knowledge", 4000, 2);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "wow does that mean i can level up my knowledge with knowledge points?", 5000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "no that's stupid", 4000);
+            main_choice();
+        }
+
+        public static void astroids()
+        {
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "you start the astroids game", 6000, 2);
+            Program.Dialog("", "you see a tiny spaceship surrounded by giant rocks", 6000, 2);
+            Program.Dialog("", "the tiny spaceship looks like it is in distress", 6000, 2);
+            Program.Dialog("", "it looks like it had a very stressfull day", 6000, 2);
+            Program.Dialog("", "it probably felt very tired because of all the rocks to avoid", 6000, 2);
+            Program.Dialog("", "it would like to just give up but it knows that it needs to do this", 6000, 2);
+            Program.Dialog("", "it knows when it gives up it will never recover from the pain", 6000, 2);
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "so it keeps figting", 3000, 2);
+            Program.Dialog("", "and it keeps avoiding", 3000, 2);
+            Program.Dialog("", "until the day it can finally rest", 6000, 6);
+            Console.WriteLine(@"
+    ####      ######## #### ##    ## 
+   ##  ##  ## ##        ##  ###   ## 
+        ####  ##        ##  ####  ## 
+              ######    ##  ## ## ## 
+              ##        ##  ##  #### 
+              ##        ##  ##   ### 
+              ##       #### ##    ## 
+");
+            Program.Dialog("", "", 6000);
+            if (!ending_collections.Contains("astroids ending"))
+            {
+                ending_collections.Add("astroids ending");
+            };
+            if (!unlocks.Contains("you played asteroids"))
+            {
+                unlocks.Add("you played asteroids");
+            };
+            ending = "astroids";
+            end_game();
+        }
+
+        public static void phone()
+        {
+            Program.Dialog("", "", 0, 0, true);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"                          .--.
+                          |  |
+                          |  |
+                          |  |
+                          |  |
+         _.-----------._  |  |
+      .-'      __       `-.  |
+    .'       .'  `.        `.|
+   ;         :    :          ;
+   |         `.__.'          |
+   |   ___                   |
+   |  (_M_) M O T O R A L A  |
+   | .---------------------. |
+   | |                     | |
+   | |                     | |
+   | |                     | |
+   | |                     | |
+   | |                     | |
+   | |                     | |
+   | |                     | |
+   | `---------------------' |
+   |                         |
+   |                __       |
+   |  ________  .-~~__~~-.   |
+   | |___C___/ /  .'  `.  \  |
+   |  ______  ;   : OK :   ; |
+   | |__A___| |  _`.__.'_  | |
+   |  _______ ; \< |  | >/ ; |
+   | [_=");
+            Program.Dialog("", "", 0, 4);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "let's see what to do here", 5000, 0, false, true);
+            phone_choice();
+        }
+
+        public static void phone_choice()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "what do you want to do", 3000, 2);
+            if (unlocks.Contains("you found an indian support number"))
+            {
+                Program.Dialog("", "A: {call indian support line}", 1000);
+            }
+            else
+            {
+                Program.Dialog("", "A: {call someone}", 1000);
+            }
+            Program.Dialog("", "B: {text someone}", 1000);
+            Program.Dialog("", "C: {go back to room}", 0, 4);
+
+            string input = Console.ReadLine().ToUpper();
+
+            switch (input)
+            {
+                case "A":
+                    if (unlocks.Contains("you found an indian support number"))
+                    {
+                        indian_support_line();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Program.Dialog("", "", 0, 4, true);
+                        Program.Dialog(Character, "who even calls asnymore", 6000, 0, false, true);
+                        phone_choice();
+                    }
+                    break;
+                case "B":
+                    if (!text_res)
+                    {
+                        text();
+                    }
+                    else
+                    {
+                        text_choice();
+                    }
+                    break;
+                case "C":
+                    main_choice();
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Program.Dialog("", "", 0, 4, true);
+                    Program.Dialog(Character, "ah yes, the `i have no idea what i'm typing` mentallity", 5000, 2, false, true);
+                    Program.Dialog(Character, "a classic", 5000, 0, false, true);
+                    phone_choice();
+                    break;
+            }
+        }
+
+        public static void indian_support_line()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("", "", 3000, 4, true);
+            Program.Dialog("", "BEEP...", 6000, 0, false, true);
+            Program.Dialog("", "", 3000, 4, true);
+            Program.Dialog("", "thank you for calling the chainbook support line", 5000, 2);
+            Program.Dialog("", "one of our IT specialists will be with you shortly", 5000);
+            Program.Dialog("", "", 6000, 4, true);
+            Program.Dialog("indian IT guy", "Hello my name is Aarav how may i help you today sir", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "yes hello my computer keeps wanting to do some wierd update", 7000, 2, false, true);
+            Program.Dialog(Character, "also it doesn't seem to be finding a game i installed on it", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "can you please give me information about when the computer was menufactered sir", 7000, 0, false, true);
+            indian_support_line_choice();
+        }
+
+        public static void indian_support_line_choice()
+        {
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "what do you want to do", 500, 2);
+            Program.Dialog("", "A {give the information}", 500);
+            Program.Dialog("", "B {compliment his accent}", 0, 4);
+
+            string input = Console.ReadLine().ToUpper();
+
+            switch (input)
+            {
+                case "A":
+                    helpfull_indian();
+                    break;
+                case "B":
+                    lovely_indian();
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Program.Dialog("", "", 0, 4, true);
+                    Program.Dialog("indian IT guy", "sorry sir i did not hear that correctly", 7000, 0, false, true);
+                    indian_support_line_choice();
+                    break;
+            }
+        }
+
+        public static void helpfull_indian()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "my computer was made on 22nd of april 2015", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "ah yes, international jelly bean day", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "...", 5000, 2, false, true);
+            Program.Dialog(Character, "alright", 7000, 2, false, true);
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "so i'm looking at my data and...", 7000, 2, false, true);
+            Program.Dialog("indian IT guy", "sir do you believe in a higher power?", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "wait what", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "i am asking you if you believe in a power above man sir", 7000, 2, false, true);
+            Program.Dialog("indian IT guy", "a lot of people with IT isieus have lost most of their willpower", 7000, 2, false, true);
+            Program.Dialog("indian IT guy", "this is why i remind them of the way of the lord", 7000, 2, false, true);
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "i'm not sure that this is what i'm looking for", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "alright sir but do me one favor", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "sigh, sure what is it", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "pray with me", 8000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "", 8000, 4, true);
+            Program.Dialog("", "you go sit on your knee's with your hands against each other and your eyes closed", 8000, 2);
+            Program.Dialog("", "even tho you don't believe in any god somehow you still feel at peace", 8000, 2);
+            Program.Dialog("", "the quietness the comfort and the feeling of not needing to do a thing", 8000, 2);
+            Program.Dialog("", "it almost feels...", 8000, 2);
+            Program.Dialog("", "powerfull", 8000, 2);
+            Program.Dialog("", "", 8000, 4, true);
+            Program.Dialog("", "suddenly your pray gets interupted", 8000, 2);
+            Program.Dialog("", "for a second you get anoyed until you realise what it is", 8000, 2);
+            Program.Dialog("", "your computer suddenly turned on and on the console is just one message", 8000);
+            Program.Dialog("", "", 3000, 4, true);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Program.Dialog("", "game:found", 10000, 0, false, true);
+            if (!ending_collections.Contains("the lame ending"))
+            {
+                ending_collections.Add("the lame ending");
+            };
+            if (!unlocks.Contains("you prayed with an indian support line"))
+            {
+                unlocks.Add("you prayed with an indian support line");
+            };
+            ending = "the lame one";
+            end_game();
+        }
+
+        public static void lovely_indian()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "i love your accent", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "thank you sir but...", 5000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "call me " + Character, 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "alright " + Character + " sir can we please continue", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "do you like movies Aarav", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "yes i've seen a few", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog(Character, "would you like to see a movie with me?", 7000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("indian IT guy", "i would like that", 7000, 2, false, true);
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "you both keep talking on the phone for some time", 7000, 2);
+            Program.Dialog("", "you talk about your favorite food", 2000, 2);
+            Program.Dialog("", "your favorite sports", 2000, 2);
+            Program.Dialog("", "your favorite nvidia graphical processing unit", 5000, 2);
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "even tho you can't see each other you know that you both are blushing", 5000, 2);
+            Program.Dialog("", "you've might not have found your game", 6000, 2);
+            Program.Dialog("", "", 0, 4, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "but you found something else", 8000, 2);
+            if (!ending_collections.Contains("the love ending"))
+            {
+                ending_collections.Add("the love ending");
+            };
+            if (!unlocks.Contains("you fell in love with an indian IT guy"))
+            {
+                unlocks.Add("you fell in love with an indian IT guy");
+            };
+            ending = "the love one";
+            end_game();
+        }
+
+        public static void text()
+        {
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "you see three contacts", 1000, 2);
+            Program.Dialog("", "your grandma", 1000, 1);
+            Program.Dialog("", "your mom", 1000, 1);
+            Program.Dialog("", "your friend", 5000, 0);
+            text_res = true;
+            text_choice();
+        }
+
+        public static void text_choice()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "what do you want to do", 1000, 2);
+            Program.Dialog("", "A {text grandma}", 1000);
+            Program.Dialog("", "B {text mom}", 1000);
+            Program.Dialog("", "C {text friend}", 1000);
+            Program.Dialog("", "D {go back to phone}", 0, 4);
+
+            string input = Console.ReadLine().ToUpper();
+
+            switch (input)
+            {
+                case "A":
+                    text_grandma();
+                    break;
+                case "B":
+                    text_mom();
+                    break;
+                case "C":
+                    text_friend();
+                    break;
+                case "D":
+                    phone_choice();
+                    break;
+                default:
+                    worste_wrong();
+                    break;
+            }
+        }
+
+        public static void text_grandma()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "what should i text", 3000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "type in what you want to text", 0, 2);
+
+            string input = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, input, 5000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.Dialog("grandma", "aw that's nice dearie", 5000, 0, false, true);
+            if (!unlocks.Contains("you texted with grandma"))
+            {
+                unlocks.Add("you texted with grandma");
+            };
+            text_choice();
+        }
+
+        public static void text_mom()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "what should i text", 3000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "type in what you want to text", 0, 2);
+
+            string input = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, input, 5000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Program.Dialog("mom", "very funny " + Character, 5000, 0, false, true);
+            if (!unlocks.Contains("you texted with mom"))
+            {
+                unlocks.Add("you texted with mom");
+            };
+            text_choice();
+        }
+
+        public static void text_friend()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "what should i text", 3000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "type in what you want to text", 0, 2);
+
+            string input = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, input, 5000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("friend", "dude wtf", 5000, 0, false, true);
+            if (!unlocks.Contains("you texted with friend"))
+            {
+                unlocks.Add("you texted with friend");
+            };
+            text_choice();
+        }
+
+        public static void worste_wrong()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, worst_text[sanity], 6000, 2, false, true);
+            sanity++;
+
+            if (sanity == worst_text.Length)
+            {
+                Program.Dialog(Character, "i warned you enough", 4000, 0, false, true);
+                if (!unlocks.Contains("you became the worst"))
+                {
+                    unlocks.Add("you became the worst");
+                };
+                sanity = 0;
+                StartScreen();
+            }
+
+            text_choice();
+        }
+
+        /// <summary>
+        /// toys
+        /// </summary>
+
+        public static void toys()
+        {
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog("", "you see some old toys you used to play with", 4000, 2);
+            Program.Dialog("", "you see three items", 1000, 2);
+            Program.Dialog("", "-a rubix cube", 1000, 1);
+            Program.Dialog("", "-some lego's", 1000, 1);
+            Program.Dialog("", "-a plastic dinosaur", 6000);
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "this is taking me back some years", 3000, 2, false, true);
+            toys_choice();
+        }
+
+        public static void toys_choice()
+        {
+            if (toys_res)
+            {
+                Program.Dialog("", "", 0, 4, true);
+            };
+            toys_res = true;
+            Console.ForegroundColor = ConsoleColor.White;
+            switch (toys_progression.Count)
+            {
+                case 0:
+                    Program.Dialog(Character, "so wich one will i look at first", 4000, 2, false, true);
+                    break;
+                case 1:
+                    Program.Dialog(Character, "let's see wich one is next", 4000, 2, false, true);
+                    break;
+                case 2:
+                    Program.Dialog(Character, "last one", 4000, 2, false, true);
+                    break;
+                default:
+                    Program.Dialog(Character, "hello mister hacker", 4000, 2, false, true);
+                    break;
+            }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "A. {rubix cube}", 1000);
+            Program.Dialog("", "B. {dinosaur}", 1000);
+            Program.Dialog("", "C. {lego's}", 1000);
+            Program.Dialog("", "D. {go back to room}", 0, 4);
+            string input = Console.ReadLine().ToUpper();
+
+            switch (input)
+            {
+                case "A":
+                    if (!toys_progression.Contains("rubix-cube"))
+                    {
+                        rubix_cube();
+                    }
+                    else
+                    {
+                        toys_reject();
+                    };
+                    break;
+                case "B":
+                    if (!toys_progression.Contains("dinosaur"))
+                    {
+                        dinosaur(); 
+                    }
+                    else
+                    {
+                        toys_reject();
+                    }
+                    break;
+                case "C":
+                    if (!toys_progression.Contains("lego"))
+                    {
+                        lego();
+                    }
+                    else
+                    {
+                        toys_reject();
+                    }
+                    break;
+                case "D":
+                    main_choice();
+                    break;
+                default:
+                    Program.Dialog("", "", 0, 4, true);
+                    Program.Dialog(Character, "there ones was a man who didn't know how to type basic characters", 8000, 0, false, true);
+                    toys_choice();
+                    break;
+            };
+        }
+
+        public static void rubix_cube()
+        {
+            toys_progression.Add("rubix-cube");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 4000, 4);
+            Program.Dialog("", "captains log, day 457, stellar coord 45x", 6000, 2);
+            Program.Dialog("", "the stars in this galaxy were circleling in wierd positions", 6000, 2);
+            Program.Dialog("", "our crew came to check it out but now it seems we don't have enough solar power to make it back", 8000, 2);
+            Program.Dialog("", "comunications are down and i don't know how long we can survive here", 7000, 2);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("crewmate", "captain, captain", 3000, 2, false, true);
+            Program.Dialog("captain", "what is it soldier", 4000, 2, false, true);
+            Program.Dialog("crewmate", "the stars they...", 4000, 2, false, true);
+            Program.Dialog("captain", "speak soldier", 4000, 2, false, true);
+            Program.Dialog("crewmate", "they fused into each other", 3000, 2, false, true);
+            Program.Dialog("crewmate", "forming a time rift", 6000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("captain", "that can't be posible", 5000, 2, false, true);
+            Program.Dialog("crewmate", "sir if we use our reserve power to fly into that rift then...", 5000, 2, false, true);
+            Program.Dialog("captain", "then we might be able to go home", 6000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("captain", "alright crew", 4000, 2, false, true);
+            Program.Dialog("captain", "full power to forward truster", 4000, 2, false, true);
+            Program.Dialog("captain", "it's time to go home", 6000, 2, false, true);
+            if (!unlocks.Contains("you played with rubix cube"))
+            {
+                unlocks.Add("you played with rubix cube");
+            };
+            toys_ending();
+        }
+
+        public static void dinosaur()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            toys_progression.Add("dinosaur");
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"   .-~~^-.
+ .'  O    \
+(_____,    \
+ `----.     \
+       \     \
+        \     \
+         \     `.             _ _
+          \       ~- _ _ - ~       ~ - .
+           \                              ~-.
+            \                                `.
+             \    /               /       \    \
+              `. |         }     |         }    \
+                `|        /      |        /       \
+                 |       /       |       /          \
+                 |      /`- _ _ _|      /.- ~ ^-.     \
+                 |     /         |     /          `.    \
+                 |     |         |     |             -.   ` . _ _ _ _ _ _
+                 |_____|         |_____|                ~ . _ _ _ _ _ _ _ >");
+            Program.Dialog("", "", 3000, 4);
+            Program.Dialog("lizzie the dino", "today is the first day of highschool and i am so exited", 5000, 2, false, true);
+            Program.Dialog("lizzie the dino", "imagine how many friends i'll make", 5000, 2, false, true);
+            Program.Dialog("lizzie the dino", "and all the boys i'll meet", 5000, 2, false, true);
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"   .-~~^-.
+ .'  O    \
+(_____,    \
+ `----.     \
+       \     \
+        \     \
+         \     `.             _ _
+          \       ~- _ _ - ~       ~ - .
+           \                              ~-.
+            \                                `.
+             \    /               /       \    \
+              `. |         }     |         }    \
+                `|        /      |        /       \
+                 |       /       |       /          \
+                 |      /`- _ _ _|      /.- ~ ^-.     \
+                 |     /         |     /          `.    \
+                 |     |         |     |             -.   ` . _ _ _ _ _ _
+                 |_____|         |_____|                ~ . _ _ _ _ _ _ _ >");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("lizzie", "i hope i get nice teachers", 5000, 2, false, true);
+            Program.Dialog("lizzie", "i hope we get a lot of free time", 5000, 2, false, true);
+            Program.Dialog("lizzie", "i hope i'll get some good grades", 5000, 2, false, true);
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"   .-~~^-.
+ .'  O    \
+(_____,    \
+ `----.     \
+       \     \
+        \     \
+         \     `.             _ _
+          \       ~- _ _ - ~       ~ - .
+           \                              ~-.
+            \                                `.
+             \    /               /       \    \
+              `. |         }     |         }    \
+                `|        /      |        /       \
+                 |       /       |       /          \
+                 |      /`- _ _ _|      /.- ~ ^-.     \
+                 |     /         |     /          `.    \
+                 |     |         |     |             -.   ` . _ _ _ _ _ _
+                 |_____|         |_____|                ~ . _ _ _ _ _ _ _ >");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("lizzie", "i hope...", 5000, 2, false, true);
+            Program.Dialog("lizzie", "...", 5000, 2, false, true);
+            Program.Dialog("lizzie", "why is there a giant fireball in the sky?", 5000, 2, false, true);
+            if (!unlocks.Contains("you played with dinosaur"))
+            {
+                unlocks.Add("you played with dinosaur");
+            };
+            toys_ending();
+        }
+
+        public static void lego()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            toys_progression.Add("lego");
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Program.Dialog("", "", 3000, 4);
+            Program.Dialog("", "war", 3000, 2);
+            Program.Dialog("", "war never changes", 5000, 2);
+            Program.Dialog("", "the enemy has made a superweapon that could destroy an entire nation in days", 8000, 2);
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("", "a creature with no form", 5000, 2);
+            Program.Dialog("", "a creature that can take any shape when necesarry", 5000, 2);
+            Program.Dialog("", "ever changing, ever growing", 8000, 2);
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("", "i don't know if i'll ever see you again my love", 5000, 2);
+            Program.Dialog("", "but when i do i will look into the stars of your eyes", 5000, 2);
+            Program.Dialog("", "and i'll say...", 8000, 2);
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Program.Dialog("", "", 0, 4);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Program.Dialog("", "2 months later", 5000, 2);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("", "something incredible happend yesterday", 5000, 2);
+            Program.Dialog("", "i stood eye to eye with the beast of the enemy", 5000, 2);
+            Program.Dialog("", "it shaping itself into my worst of nightmares", 5000, 2);
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("", "i knew for sure these would be my final moments", 5000, 2);
+            Program.Dialog("", "my heart pounding and my mind thinking of you my love", 6000, 2);
+            Program.Dialog("", "but then...", 8000, 2);
+            if (!unlocks.Contains("you played with legos"))
+            {
+                unlocks.Add("you played with legos");
+            };
+            toys_ending();
+        }
+
+        public static void toys_ending()
+        {
+            if (toys_progression.Count < 3)
+            {
+                toys_choice();
+            }
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("crewmate", "captain we've seem to have crashed into a wierd object", 5000, 2, false, true);
+            Program.Dialog("captain", "what kind of object soldier", 5000, 2, false, true);
+            Program.Dialog("", "", 0, 1, true);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+_|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|
+___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
+");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("crewmate", "it's hard to pinpoint a shape captain", 8000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("captain", "soldier where did that time rift take us", 5000, 2, false, true);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program.Dialog("", "", 0, 1, true);
+            Console.WriteLine(@"   .-~~^-.
+ .'  O    \
+(_____,    \
+ `----.     \
+       \     \
+        \     \
+         \     `.             _ _
+          \       ~- _ _ - ~       ~ - .
+           \                              ~-.
+            \                                `.
+             \    /               /       \    \
+              `. |         }     |         }    \
+                `|        /      |        /       \
+                 |       /       |       /          \
+                 |      /`- _ _ _|      /.- ~ ^-.     \
+                 |     /         |     /          `.    \
+                 |     |         |     |             -.   ` . _ _ _ _ _ _
+                 |_____|         |_____|                ~ . _ _ _ _ _ _ _ >");
+            Program.Dialog("", "", 0, 4);
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.Dialog("crewmate", "seems to be earth, prehistoric era", 5000, 2, false, true);
+            Program.Dialog("captain", "try to avoid the wildlife as much as you can", 8000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("crewmate", "i'm sorry sir but we are on a direct collision course", 5000, 2, false, true);
+            Program.Dialog("crewmate", "and the wierd object is obscuring our lower trusters", 5000, 2, false, true);
+            Program.Dialog("crewmate", "captain what should we do", 8000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("captain", "...", 5000, 2, false, true);
+            Program.Dialog("captain", "do we have power", 5000, 2, false, true);
+            Program.Dialog("crewmate", "solar power is fully restored sir", 5000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Program.Dialog("captain", "put full power into the lower trusters", 5000, 2, false, true);
+            Program.Dialog("captain", "lets burn this thing to the ground", 5000, 2, false, true);
+            Program.Dialog("crew", "yes sir", 8000, 2, false, true);
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "our hero's were able to burn the weapon and escape to space", 5000, 2);
+            Program.Dialog("", "now they will be searching for millenia to find their home", 8000, 2);
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Program.Dialog("", "", 0, 2, true);
+            Console.WriteLine(@"    _ _ _
+  /_/_/_/\
+ /_/_/_/\/\
+/_/_/_/\/\/\
+\_\_\_\/\/\/
+ \_\_\_\/\/
+  \_\_\_\/ ");
+            Program.Dialog("", "", 0, 4);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "meanwhile " + Character + " past out due to extreme amounts of creativity and nostalgia", 5000, 2);
+            Program.Dialog("", "the end", 8000);
+            if (!ending_collections.Contains("extreem creativity ending"))
+            {
+                ending_collections.Add("extreem creativity ending");
+            };
+            if (!unlocks.Contains("you died deu to nostalgia"))
+            {
+                unlocks.Add("you died deu to nostalgia");
+            };
+            ending = "extreem creativity";
+            end_game();
+        }
+
+        public static void toys_reject()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 0, 4, true);
+            Program.Dialog(Character, "no we already did that one", 4000, 0, false, true);
+            toys_choice();
+        }
+
+        public static void end_game()
+        {
+            if ((skip_check) && !(unlocks.Contains("you skiped the intro you monster")))
+            {
+                unlocks.Add("you skiped the intro you monster");
+            }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "", 3000, 4, true);
+            Program.Dialog("", "Ending: " + ending, 3000, 4);
+            Program.Dialog("", "Endings:", 1500, 1);
+            foreach(string end in ending_collections)
+            {
+                Program.Dialog("", end, 1500);
+            }
+            Program.Dialog("", "", 3000, 4, true);
+            Program.Dialog("", "actions:", 1500, 1);
+            foreach(string unlock in unlocks)
+            {
+                Program.Dialog("", unlock, 1500);
+            }
+            Program.Dialog("", "", 5000);
+            last_choice();
+        }
+
+        public static void last_choice()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Program.Dialog("", "", 3000, 4, true);
+            Program.Dialog(Character, "just a wonderfull little ending", 5000, 2, false, true);
+            Program.Dialog(Character, "wanna see another one?", 3000, 4, false, true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Program.Dialog("", "A. {go back to room}");
+            Program.Dialog("", "B. {quit game}", 0, 4);
+            string input = Console.ReadLine().ToUpper();
+            switch (input)
+            {
+                case "A":
+                    StartGame();
+                    break;
+                case "B":
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Program.Dialog("", "", 0, 0, true);
+                    Console.WriteLine(@"
+ ██████╗██╗      ██████╗ ███████╗██╗███╗   ██╗ ██████╗          
+██╔════╝██║     ██╔═══██╗██╔════╝██║████╗  ██║██╔════╝          
+██║     ██║     ██║   ██║███████╗██║██╔██╗ ██║██║  ███╗         
+██║     ██║     ██║   ██║╚════██║██║██║╚██╗██║██║   ██║         
+╚██████╗███████╗╚██████╔╝███████║██║██║ ╚████║╚██████╔╝██╗██╗██╗
+ ╚═════╝╚══════╝ ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝╚═╝
+                                                                
+");
+                    Program.Dialog("", "", 5000, 4);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Program.Dialog(Character, "sad " + Character + " noises", 1000, 0, false, true);
+                    Environment.Exit(0);
+                    break;
+                case "SECRET":
+                    Program.NewScreen();
+                    if (!unlocks.Contains("poggers"))
+                    {
+                        unlocks.Add("poggers");
+                    };
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(@"@@@@@@@@@@@@@@@@@@%%%#%######%%%%###########((((((/(//////////////**********************,,,,,,.....                             ...*@&&%&&&&&&&&%&%%%%
+@@@@@@@@@@@@@@@@@@&&&&&%%%%%%%#############((((////****,,,,,********************************,,,,....                             ....,#%&&&&&&&%%%%%%%
+@@@@@@@@@@@@@@@@@@&&&&&%%%%%%###########(((///*,,,,,,,,,,,,,,,,,,,,,*************************,,,..             .. .*                  .. @&&&&&&&&&%%%
+@@@@@@@@@@@@@@@@@&&&&%&%%%%%#########((((//*,,,,,,,,****/*********,,,,,,*********************,,,..    .. .  ....  *,.....                   &%&&&%&%%%
+@@@@@@@@@@@@@@@@@&&&&%%%%##########((//*,,,,,,,*****////////////////*****************/********,,..  ........,,.  **,,,....                 ..,%&&&&%%%
+@@@@@@@@@@@@@@@@@%%%%%%#########((((/**************////*/*/////////**************************,,,.  ,,,,,, ..**  ,***,,,,.                  ... &&&&&&%
+@@@@@@@@@@@@@@@@%((###########(((((////*****************,*************************************,,. .,,,,,. .,,.  ********            .       ... &&&&&&
+@@@@@@@@@@@@@@@@@(/*//((##((((((((///************,,,...,,,*,,,,,******************************,,. .,,,,, ....  .,,,,***           .           ...%&&&%
+@@@@@@@@@@@@@@@@@@##((((((((((((((///*********,,,.,,*,,.  ,,,*,,,,,*********//******/*********,,  ...... . ..  ..,,,,,.          ..            ..@&&&&
+@@@@@@@@@@@@@@@@@@@((/*.,((((((((///*********,,,,,,*/,*,,,,,******//******/////*/**************,  ...... . ..  .......          ,.              ,%&&&&
+@@@@@@@@@@@@@@@@@@@&%/**/,,.#####((//***********,,,**//**/////***////////////////////**********,   ....    ..  .......          ..             ., &&&&
+@@@@@@@@@@@@@@@@@@@@@@@(#(**(%%%##((//////////////******/////////////////////////////***********     ...   ..  ......           .              .. &&&&
+@@@@@@@@@@@@@@@@@@@@@@@&((((&%%%%##((////(((((////////////////////((((((((////////////**********      .        . ....           .               . %&&&
+@@@@@@@@@@@@@@@@@@@@@@@@&##%&%%###(((////(((((((((//////((((((((((((((((((/////////////*********       .  . .      ...                        . ,,&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@&%%%%%%##(((((///((((((((((((/////(((((((((((((((((////////////**********               .   .                         .,.@&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@&&#&&&%%#(((////(/((((((((((((((((//((((((((((((((((//////////***********.    ...    ...                             .../&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@%#&&&%##(((//////(((((((((((((((((((((((((((((((((///////////***********,.   . ..  . ..........                .,,....,%&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@%&&%%%##((/////////(((((((((((((((((((((((((((((//////////////***********,,     ..   ...........                .....%&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@&%%%####(((/////////((((((((((((((((((((//////////////////////***********,,     ... .............            ... . @&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@%%######(((///////*//((((((((((((((((////////////////////////**************,.      .   .......                ..,&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@&%####((///////////*//((((((((((((((///////////////////////////*************,,,.         ..               . ,*@%&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@##((((///*.,//////*//((##(((((((////////////////////////////////*************,,,,,                       .. &@%&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(((//**,,,,*///*/(((###((((((((//////////////*/*/////////*///***************,,,,,,,,,,,,,,. .,... *@@ ..,&&&&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%&(**////(////(((((#((((((((//////////////*/////*/////////////**************,,,,,,,,,,,,,,,*,*@@@@@@@*.. @@&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&#((((((((((((((((((((///////////////*///////////////////////************,,,,,,,,,,,,,,,*.***,@@@&@ ...@@&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&&%#((((((((((//(((((////////////*////////////////////////////************,,,,,,,,,,,,,*,.,*****@@@&@* @@@@&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&%%((#(#(((////////////////*****//*/////////////////////////*********************,,,,,,.,,,,****.@@&#.@&@@&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&%%%###(((///////////////********////////////////////////////*********************,,,.,,,,,,,*,,* @#.@&&&&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&###(###(((////******//////*////**/////////////////////////////******,********/****,.,*,,,,,,,,**,,*..(@&%&&&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/***,,,*///***********///////////////////////////////////////***************///*,,./*****,,,,,,,,**  */ . @&&&&&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(,**,,,..  ,********///////////////////////////////////*************//////,,./************,,,*.*****... .@&&&&&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&**,,..      ./****///////////////////////////////***,,,*******/////,,.///***************..****,     . , @&
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@**,,,.... ..  */***///////////////////////////****,,********////,,.///////*****////***/.,***           . 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(/*,,,,...*****///***/////////////***/////******,,,********///,,,///////////////////*/, /*.              
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(/*,,,,,,.....///*****/*//////////**********,,,,*******///,,,.//////////////////////(.,,                
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%//****,*,*****//*******//////////********,,**********/,,,,/////////////////////////,.                  
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/(////////////*******//(/////*********,**********/,,,,*(//////////////////////////.                   
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(//////////*****///(((///*********//////****,.,.////(((((((((////////////////..                    
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##(///////*///((((///******,/(((///(* . ..///((((((((((((((/((//////////, ..                    
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&#((///(////((((///***** .,..*((* ..... //////(((((((((((((((////////,   .                     
+%&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(,**#(((((((((///***.    ...,.*...... /(/(((//(((((((((((((/((((((//.    ..                     
+###&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@(,,,,,,,,..*/*/*,,,.     ...,., ...../((((///((/(((((((((((((((((///.      .                      
+(((%&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.*,,,,,,,,..........     ...,..,,..  ,//(/(/((((/((((((((((((((////,         .                      
+(####%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.,,,,..,,,,........,.     ...,..,,,,,,..(///////////((((((((((((//*            .                     ");
+                    Console.ReadKey();
+                    last_choice();
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Program.Dialog("", "", 0, 4, true);
+                    Program.Dialog(Character, "A OR B IT'S NOT THAT HARD JOU WASTE OF HUMAN INTELLIGENTS", 6000, 0, false, true);
+                    last_choice();
+                    break;
+            }
+        }
+    }
+
+/// <summary>
+/// program
+/// </summary>
+    class Program
+    {
+
+        public static void Dialog(string Character = "", string Text = "please put text here", int AfterDelay = 0, int bracket = 0, bool newscreen = false, bool beep = false)
+        {
+            if (beep)
+            {
+                Console.Beep();
+            };
+
+            if (newscreen)
+            {
+                NewScreen();
+            };
+            switch (Character)
+            {
+                case "":
+                    Character = "";
+                    break;
+                default:
+                    Character = (Character + ": ");
+                    break;
+            };
+
+            Console.WriteLine(Character + Text);
+
+            while (bracket > 0)
+            {
+                Console.WriteLine("");
+                bracket--;
+            };
+
+            System.Threading.Thread.Sleep(AfterDelay);
+        }
+
+
+        public static void NewScreen()
+        {
+            Console.Clear();
+        }
+
+
+        
+
+        static void Main()
+        {
+            Console.WindowHeight = Console.LargestWindowHeight - 10;
+            Console.WindowWidth = Console.LargestWindowWidth - 20;
+            Game.StartScreen();
+        }
+    }
+}
