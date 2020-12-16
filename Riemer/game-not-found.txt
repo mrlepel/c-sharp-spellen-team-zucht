@@ -17,8 +17,8 @@ namespace ERROR_game_not_found
         static bool toys_res = false;
         static bool text_res = false;
 
-        static List<string> ending_collections = new List<string>();
-        static List<string> unlocks = new List<string>();
+        public static List<string> ending_collections = new List<string>();
+        public static List<string> unlocks = new List<string>();
 
         static string ending = "";
 
@@ -310,7 +310,7 @@ namespace ERROR_game_not_found
         {
             Program.Dialog("", "", 0, 4, true);
             Program.Dialog("", "you find a website that holds an indian support line for your system", 4000, 2);
-            unlocks.Add("you found an indian support number");
+            Program.unlock_add("you found an indian support number");
             Program.Dialog("", "indian support number has been added to your knowledge", 4000, 2);
             Console.ForegroundColor = ConsoleColor.White;
             Program.Dialog(Character, "wow does that mean i can level up my knowledge with knowledge points?", 5000, 2, false, true);
@@ -343,14 +343,8 @@ namespace ERROR_game_not_found
               ##       #### ##    ## 
 ");
             Program.Dialog("", "", 6000);
-            if (!ending_collections.Contains("astroids ending"))
-            {
-                ending_collections.Add("astroids ending");
-            };
-            if (!unlocks.Contains("you played asteroids"))
-            {
-                unlocks.Add("you played asteroids");
-            };
+            Program.ending_add("astroids ending");
+            Program.unlock_add("you played astroids");
             ending = "astroids";
             end_game();
         }
@@ -538,14 +532,8 @@ namespace ERROR_game_not_found
             Program.Dialog("", "", 3000, 4, true);
             Console.ForegroundColor = ConsoleColor.Red;
             Program.Dialog("", "game:found", 10000, 0, false, true);
-            if (!ending_collections.Contains("the lame ending"))
-            {
-                ending_collections.Add("the lame ending");
-            };
-            if (!unlocks.Contains("you prayed with an indian support line"))
-            {
-                unlocks.Add("you prayed with an indian support line");
-            };
+            Program.ending_add("the lame ending");
+            Program.unlock_add("you prayed with an indian support line");
             ending = "the lame one";
             end_game();
         }
@@ -582,14 +570,8 @@ namespace ERROR_game_not_found
             Program.Dialog("", "", 0, 4, true);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Program.Dialog("", "but you found something else", 8000, 2);
-            if (!ending_collections.Contains("the love ending"))
-            {
-                ending_collections.Add("the love ending");
-            };
-            if (!unlocks.Contains("you fell in love with an indian IT guy"))
-            {
-                unlocks.Add("you fell in love with an indian IT guy");
-            };
+            Program.ending_add("the love ending");
+            Program.unlock_add("you fell in love with an indian IT guy");
             ending = "the love one";
             end_game();
         }
@@ -652,10 +634,7 @@ namespace ERROR_game_not_found
             Program.Dialog(Character, input, 5000, 2, false, true);
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Program.Dialog("grandma", "aw that's nice dearie", 5000, 0, false, true);
-            if (!unlocks.Contains("you texted with grandma"))
-            {
-                unlocks.Add("you texted with grandma");
-            };
+            Program.unlock_add("you texted with grandma");
             text_choice();
         }
 
@@ -674,10 +653,7 @@ namespace ERROR_game_not_found
             Program.Dialog(Character, input, 5000, 2, false, true);
             Console.ForegroundColor = ConsoleColor.Red;
             Program.Dialog("mom", "very funny " + Character, 5000, 0, false, true);
-            if (!unlocks.Contains("you texted with mom"))
-            {
-                unlocks.Add("you texted with mom");
-            };
+            Program.unlock_add("you texted with mom");
             text_choice();
         }
 
@@ -696,10 +672,7 @@ namespace ERROR_game_not_found
             Program.Dialog(Character, input, 5000, 2, false, true);
             Console.ForegroundColor = ConsoleColor.Green;
             Program.Dialog("friend", "dude wtf", 5000, 0, false, true);
-            if (!unlocks.Contains("you texted with friend"))
-            {
-                unlocks.Add("you texted with friend");
-            };
+            Program.unlock_add("you texted with friend");
             text_choice();
         }
 
@@ -713,10 +686,7 @@ namespace ERROR_game_not_found
             if (sanity == worst_text.Length)
             {
                 Program.Dialog(Character, "i warned you enough", 4000, 0, false, true);
-                if (!unlocks.Contains("you became the worst"))
-                {
-                    unlocks.Add("you became the worst");
-                };
+                Program.unlock_add("you became the worst");
                 sanity = 0;
                 StartScreen();
             }
@@ -871,10 +841,7 @@ namespace ERROR_game_not_found
             Program.Dialog("captain", "alright crew", 4000, 2, false, true);
             Program.Dialog("captain", "full power to forward truster", 4000, 2, false, true);
             Program.Dialog("captain", "it's time to go home", 6000, 2, false, true);
-            if (!unlocks.Contains("you played with rubix cube"))
-            {
-                unlocks.Add("you played with rubix cube");
-            };
+            Program.unlock_add("you played with rubix cube");
             toys_ending();
         }
 
@@ -951,10 +918,7 @@ namespace ERROR_game_not_found
             Program.Dialog("lizzie", "i hope...", 5000, 2, false, true);
             Program.Dialog("lizzie", "...", 5000, 2, false, true);
             Program.Dialog("lizzie", "why is there a giant fireball in the sky?", 5000, 2, false, true);
-            if (!unlocks.Contains("you played with dinosaur"))
-            {
-                unlocks.Add("you played with dinosaur");
-            };
+            Program.unlock_add("you played with dinosaur");
             toys_ending();
         }
 
@@ -1082,10 +1046,7 @@ ___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
             Program.Dialog("", "i knew for sure these would be my final moments", 5000, 2);
             Program.Dialog("", "my heart pounding and my mind thinking of you my love", 6000, 2);
             Program.Dialog("", "but then...", 8000, 2);
-            if (!unlocks.Contains("you played with legos"))
-            {
-                unlocks.Add("you played with legos");
-            };
+            Program.unlock_add("you played with legos");
             toys_ending();
         }
 
@@ -1222,14 +1183,8 @@ ___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
             Console.ForegroundColor = ConsoleColor.Yellow;
             Program.Dialog("", "meanwhile " + Character + " past out due to extreme amounts of creativity and nostalgia", 5000, 2);
             Program.Dialog("", "the end", 8000);
-            if (!ending_collections.Contains("extreem creativity ending"))
-            {
-                ending_collections.Add("extreem creativity ending");
-            };
-            if (!unlocks.Contains("you died deu to nostalgia"))
-            {
-                unlocks.Add("you died deu to nostalgia");
-            };
+            Program.ending_add("extreem creativity ending");
+            Program.unlock_add("you died deu to nostalgia");
             ending = "extreem creativity";
             end_game();
         }
@@ -1244,9 +1199,9 @@ ___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
 
         public static void end_game()
         {
-            if ((skip_check) && !(unlocks.Contains("you skiped the intro you monster")))
+            if (skip_check)
             {
-                unlocks.Add("you skiped the intro you monster");
+                Program.unlock_add("you skiped the intro you monster");
             }
             Console.ForegroundColor = ConsoleColor.Yellow;
             Program.Dialog("", "", 3000, 4, true);
@@ -1300,10 +1255,7 @@ ___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
                     break;
                 case "SECRET":
                     Program.NewScreen();
-                    if (!unlocks.Contains("poggers"))
-                    {
-                        unlocks.Add("poggers");
-                    };
+                    Program.unlock_add("poggers");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(@"@@@@@@@@@@@@@@@@@@%%%#%######%%%%###########((((((/(//////////////**********************,,,,,,.....                             ...*@&&%&&&&&&&&%&%%%%
 @@@@@@@@@@@@@@@@@@&&&&&%%%%%%%#############((((////****,,,,,********************************,,,,....                             ....,#%&&&&&&&%%%%%%%
@@ -1400,6 +1352,21 @@ ___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
             System.Threading.Thread.Sleep(AfterDelay);
         }
 
+        public static void unlock_add(string unlockable)
+        {
+            if (!Game.unlocks.Contains(unlockable))
+            {
+                Game.unlocks.Add(unlockable);
+            }
+        }
+
+        public static void ending_add(string ending)
+        {
+            if (!Game.ending_collections.Contains(ending))
+            {
+                Game.ending_collections.Add(ending);
+            }
+        }
 
         public static void NewScreen()
         {
@@ -1414,6 +1381,7 @@ ___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|__
             Console.WindowHeight = Console.LargestWindowHeight - 10;
             Console.WindowWidth = Console.LargestWindowWidth - 20;
             Game.StartScreen();
+            Console.ReadKey();
         }
     }
 }
